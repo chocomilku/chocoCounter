@@ -1,26 +1,33 @@
+:root {
+    --height: 150px;
+}
+
+
 .body {
-    width: 1200px;
-    height: 100px;
+    width: 1800px;
+    height: var(--height);
     outline: 1px solid red;
     display:flex;
-    border-radius: 15px;
+    border-radius: 22.5px;
 }
 
 .sub {
-    width:900px;
-    height:100px;
+    width:1350px;
+    height:var(--height);
     outline: 1px solid green;
-    border-radius: 30px;
+    border-radius: 45px;
 }
 
 .ppContainer {
     outline:1px solid blue;
-    width: 150px;
-    height:100px;
+    width: 225px;
+    height:var(--height);
+    border-radius: 22.5px;
 }
 
 .gContainer {
     outline: 1px solid blue;
-    width:150px;
-    height:100px;
+    width:225px;
+    height:var(--height);
+    border-radius: 22.5px;
 }
