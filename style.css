@@ -6,7 +6,7 @@
 .body {
     width: 1800px;
     height: var(--height);
-    outline: 1px solid red;
+    border: 5px solid black;
     display:flex;
     border-radius: 22.5px;
 }
@@ -14,7 +14,7 @@
 .sub {
     width:1350px;
     height:var(--height);
-    outline: 1px solid green;
+    outline:3px solid black;
     border-radius: 45px;
 }
 
