@@ -2,13 +2,29 @@
     --height: 150px;
 }
 
+.background {
+    position: relative;
+    width:1800px;
+}
+
+#bg {
+    object-fit: cover;
+    position:absolute;
+    width:1800px;
+    height:var(--height);
+    width:100%;
+    bottom:0px;
+    z-index: -1;
+    filter: blur(0.25rem);
+}
 
 .body {
     width: 1800px;
     height: var(--height);
-    border: 5px solid black;
+    outline: 5px solid black;
     display:flex;
     border-radius: 22.5px;
+    background: rgba(0, 0, 0, 0.375)
 }
 
 .sub {
@@ -19,6 +35,7 @@
 }
 
 .ppContainer {
+    background: linear-gradient(to left,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.15));
     outline:1px solid blue;
     width: 225px;
     height:var(--height);
@@ -26,6 +43,7 @@
 }
 
 .gContainer {
+    background: linear-gradient(to right,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.15));
     outline: 1px solid blue;
     width:225px;
     height:var(--height);
