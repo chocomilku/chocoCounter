@@ -14,6 +14,8 @@ section {
     color:white;
 }
 
+/*bg*/
+
 .background {
     position: relative;
 }
@@ -28,6 +30,8 @@ section {
     z-index: -1;
     filter: blur(0.25rem);
 }
+
+/* main body*/
 
 .body {
     width: 1800px;
@@ -47,22 +51,29 @@ section {
     display: flex;
     justify-content: center;
 }
-
 .ppContainer {
     background: linear-gradient(to left,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.15));
-    outline:1px solid blue;
     width: 225px;
     height:var(--height);
     border-radius: 22.5px;
+    font-size:50px;
+    text-align: center;
+    height:var(--height);
+    line-height: var(--height);
 }
 
 .gContainer {
     background: linear-gradient(to right,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.15));
-    outline: 1px solid blue;
     width:225px;
     height:var(--height);
     border-radius: 22.5px;
+    font-size:50px;
+    text-align: center;
+    height:var(--height);
+    line-height: var(--height);
 }
+
+/*sub*/
 
 .top {
     height:60px;
@@ -101,16 +112,28 @@ section {
     font-size:25px;
 }
 
-#c1 {
-    width:75px;
+.cN {
+    width:100px;
     flex: 0 1 auto;
     margin:0px 10px;
     border-bottom: 3px solid red;
     border-radius: 1px;
 }
 
-#d1 {
-    width:75px;
+._cN {
+    width:100px;
     margin:0px 10px;
     flex: 0 1 auto; 
+}
+
+.maxCombo {
+    width:165px;
+}
+
+.combo {
+    width:115px;
+}
+
+.acc {
+    width:115px;
 }
