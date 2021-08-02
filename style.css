@@ -2,9 +2,20 @@
     --height: 150px;
 }
 
+section {
+    width: 1800px;
+    height:var(--height);
+}
+
+.text {
+    margin:0px;
+    padding:0px;
+    font-family: 'Poppins', sans-serif;
+    color:white;
+}
+
 .background {
     position: relative;
-    width:1800px;
 }
 
 #bg {
@@ -32,6 +43,9 @@
     height:var(--height);
     outline:3px solid black;
     border-radius: 45px;
+    position:relative;
+    display: flex;
+    justify-content: center;
 }
 
 .ppContainer {
@@ -48,4 +62,55 @@
     width:225px;
     height:var(--height);
     border-radius: 22.5px;
+}
+
+.top {
+    height:60px;
+    text-align:center;
+    font-size:50px;
+}
+
+.bottom {
+    position:absolute;
+    bottom:0px;
+    height: 85px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom > ul {
+    align-items: stretch;
+    justify-content: space-between;
+    text-align: center;
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+
+.halfTop {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-size:30px;
+}
+
+.halfBottom {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-size:25px;
+}
+
+#c1 {
+    width:75px;
+    flex: 0 1 auto;
+    margin:0px 10px;
+    border-bottom: 3px solid red;
+    border-radius: 1px;
+}
+
+#d1 {
+    width:75px;
+    margin:0px 10px;
+    flex: 0 1 auto; 
 }
