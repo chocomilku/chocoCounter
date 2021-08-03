@@ -17,7 +17,36 @@ section {
 /*bg*/
 
 .background {
-    position: relative;
+    position: absolute;
+    width:1800px;
+    height:var(--height);
+}
+
+.background2 {
+    position: absolute;
+    width:1800px;
+    height:var(--height);
+    clip-path: inset(5px 1575px 0px 5px);
+    z-index:2;
+}
+
+.background3 {
+    position: absolute;
+    width:1800px;
+    height:var(--height);
+    clip-path: inset(0px 0px 0px 1575px);
+    z-index:2;
+}
+
+#bg2 {
+    border-radius: 22.5px;
+    object-fit: cover;
+    position:absolute;
+    width:1800px;
+    height:var(--height);
+    bottom:0px;
+    z-index: -2;
+    filter: blur(0.25rem) brightness(63%);
 }
 
 #bg {
@@ -208,4 +237,9 @@ section {
 
 .acc {
     width:115px;
+}
+
+#test {
+    z-index:5;
+    outline:5px solid red;
 }
