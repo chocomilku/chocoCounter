@@ -89,8 +89,19 @@ section {
 /*top*/
 
 .top {
+    width:1300px;
     height:60px;
-    font-size:50px;
+    font-size: 50px;
+}
+
+.top > span {
+    width:1300px;
+    text-align: center;
+}
+
+.fit {
+    display:inline-block;
+    white-space: nowrap;
 }
 
 /*bottom*/
