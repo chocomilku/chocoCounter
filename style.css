@@ -14,10 +14,17 @@ section {
     color:white;
 }
 
+.main{
+    position:relative;
+}
+
 /*bg*/
 
 .background {
-    position: relative;
+    position: absolute;
+    width:1800px;
+    height:var(--height);
+    border-radius:22.5px;
 }
 
 #bg {
@@ -25,45 +32,17 @@ section {
     position:absolute;
     width:1800px;
     height:var(--height);
-    width:100%;
     bottom:0px;
     z-index: -2;
-    filter: blur(0.25rem);
-}
-
-.bgWrapper {
-    position:absolute;
-    background: rgba(0, 0, 0, 0.375);
-    width: 1800px;
-    height:var(--height);
-    z-index:2;
-}
-
-.bgLeft {
-    position: absolute;
-    width:1800px;
-    outline:1px solid red;
-    z-index:2;
-    height:var(--height);
-    clip-path:inset(0px 1580px 0px 0px);
-    border-radius: 22.5px;
-}
-
-#bgLeft {
-    object-fit: cover;
-    position:absolute;
-    width:1800px;
-    height:var(--height);
-    bottom:0px;
     filter: blur(0.25rem);
 }
 
 /* main body*/
 
 .body {
+    border:5px solid black;
     width: 1800px;
     height: var(--height);
-    border: 5px solid black;
     display:flex;
     border-radius: 22.5px;
     background: rgba(0, 0, 0, 0.375);
@@ -81,7 +60,7 @@ section {
     z-index:1;
 }
 .ppContainer {
-    /*background: linear-gradient(to left,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.15));*/
+    background: linear-gradient(to left,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.15));
     width: 225px;
     height:var(--height);
     border-radius: 22.5px;
@@ -113,43 +92,6 @@ section {
     height:60px;
     font-size:50px;
 }
-
-.scrollContainer {
-    display:inline-block;
-}
-
-.scrollContainer {
-    -moz-transform:translateX(125%);
-    -webkit-transform:translateX(125%);  
-    transform:translateX(125%);
-    -moz-animation: scroll 25s linear infinite;
-    -webkit-animation: scroll 25s linear infinite;
-    animation: scroll 15s linear infinite;
-    outline:1px solid red;
-    z-index:-1;
-}
-
-
-@-moz-keyframes scroll {
-    0%   { -moz-transform: translateX(125%); }
-    100% { -moz-transform: translateX(-125%); }
-   }
-   @-webkit-keyframes scroll {
-    0%   { -webkit-transform: translateX(125%); }
-    100% { -webkit-transform: translateX(-125%); }
-   }
-   @keyframes scroll {
-    0%   { 
-    -moz-transform: translateX(125%); 
-    -webkit-transform: translateX(125%); 
-    transform: translateX(125%);     
-    }
-    100% { 
-    -moz-transform: translateX(-125%); 
-    -webkit-transform: translateX(-125%); 
-    transform: translateX(-125%); 
-    }
-   }
 
 /*bottom*/
 
