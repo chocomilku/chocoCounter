@@ -12,9 +12,6 @@ socket.onerror = error => console.log("Socket Error: ", error);
 
 
 // variables
-fitty('#title', {minSize:16, maxSize: 50, multiLine: true, observeMutations: {subtree: true, childList: true, characterData: true, characterDataOldValue: true}});
-let fff = fitty('.fit')
-
 let $title = document.getElementById('title')
 let grade = document.getElementById('grade')
 let star = document.getElementById('star')
@@ -97,9 +94,17 @@ socket.onmessage = event => {
             mapper = meta.mapper
           }
 
+          if (mods != menu.mods.str){
+            mods = "+" + menu.mods.str
+            if (mods == "+NM") {
+                mods = ""
+            }
+          }
+
         if (tempTitle != $title) {
-            tempTitle = `${artist} - ${title} [${diff}] (${mapper})`
+            tempTitle = `${artist} - ${title} [${diff}] (${mapper}) ${mods}`
             $title.innerText = tempTitle
+            textFit(document.getElementById('title'), {alignVert: true, alignHoriz: true, minFontSize: 16, maxFontSize: 50})
         }
 
     } catch (err) { console.log(err); };
