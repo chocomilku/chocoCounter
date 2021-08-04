@@ -21,10 +21,9 @@ section {
 /*bg*/
 
 .background {
-    position: absolute;
     width:1800px;
     height:var(--height);
-    border-radius:22.5px;
+    position:absolute;
 }
 
 #bg {
@@ -32,9 +31,9 @@ section {
     position:absolute;
     width:1800px;
     height:var(--height);
-    bottom:0px;
     z-index: -2;
     filter: blur(0.25rem);
+
 }
 
 /* main body*/
