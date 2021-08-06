@@ -16,6 +16,8 @@ let $title = document.getElementById('title')
 let grade = document.getElementById('grade')
 let star = document.getElementById('star')
 let bg = document.getElementById('bg')
+let playing = false
+let all = ["c1", "_c1", "c2", "_c2", "c3", "_c3", "c4", "_c4", "c5", "_c5","c6", "_c6", "c7", "_c7", "c8", "_c8", "c9", "_c9", "grade", "star"]
 
 let artist;
 let title;
@@ -61,14 +63,20 @@ let _c7 = document.getElementById('_c7')
 let _c8 = document.getElementById('_c8')
 let _c9 = document.getElementById('_c9')
 
-
-
+let pp = new CountUp('pp', 0, 0, 0, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "pp" })
 // dom
 
 socket.onmessage = event => {
     try { 
         let data = JSON.parse(event.data), menu = data.menu, play = data.gameplay, hits = play.hits, meta = menu.bm.metadata, stats = menu.bm.stats
 
+        if (menu.state === 2 || menu.state === 7 || menu.state === 14) {
+            playing = true
+        } else {
+            playing = false
+        }
+
+        //bg
         if (tempImg !== data.menu.bm.path.full) {
             tempImg = data.menu.bm.path.full;
             let img = data.menu.bm.path.full.replace(/#/g, "%23").replace(/%/g, "%25");
@@ -77,7 +85,7 @@ socket.onmessage = event => {
               `http://127.0.0.1:24050/Songs/${img}?a=${Math.random(10000)}`
             );
           }
-
+          //title bar (.top)
           if (artist != meta.artist) {
             artist = meta.artist
           }
@@ -104,8 +112,31 @@ socket.onmessage = event => {
         if (tempTitle != $title) {
             tempTitle = `${artist} - ${title} [${diff}] (${mapper}) ${mods}`
             $title.innerText = tempTitle
-            textFit(document.getElementById('title'), {alignVert: true, alignHoriz: true, minFontSize: 16, maxFontSize: 50})
+            textFit(document.getElementById('title'), {alignHoriz: true, minFontSize: 16, maxFontSize: 50})
         }
+
+        //playing states
+        if (playing == false) {
+
+          if (pp != menu.pp['100']) {
+            pp.update(menu.pp['100'])
+          }
+
+          let selector = [0, 1, 2, 3, 12, 13, 14, 15, 16, 17, 18,]
+          for (let i = 0; i < all.length; i++) {
+            document.getElementById(all[i]).classList.add('hide')
+            setTimeout(function(){document.getElementById(all[i]).classList.remove('hide')}, 500)
+          }
+          for (let n = 0; n < selector.length; n++) {
+            setTimeout(function(){
+              document.getElementById(all[selector[n]]).style.display = "none";
+            }, 250)
+          }
+
+
+
+        }
+
 
     } catch (err) { console.log(err); };
 };

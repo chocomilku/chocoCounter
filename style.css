@@ -2,6 +2,21 @@
     --height: 150px;
 }
 
+@keyframes change {
+    0% {transform: scale(0.9)}
+    100% {transform: scale(1.1)}
+}
+
+@keyframes hide {
+    0% {opacity:1}
+    50% {opacity:0}
+    100% {opacity:1}
+}
+
+.hide {
+    animation:hide 500ms ease 1 normal forwards;
+}
+
 section {
     width: 1800px;
     height:var(--height);
@@ -87,7 +102,7 @@ section {
 
 .top {
     width:1300px;
-    height:60px;
+    height:75px;
     font-size: 50px;
 }
 
@@ -99,6 +114,10 @@ section {
 .fit {
     display:inline-block;
     white-space: nowrap;
+}
+
+#title {
+    transition: font-size 250ms ease-in-out;
 }
 
 /*bottom*/
@@ -140,12 +159,18 @@ section {
     margin:0px 10px;
     border-bottom: 3px solid red;
     border-radius: 1px;
+    display:block;
+    visibility:visible;
+    opacity:1;
 }
 
 ._cN {
     width:100px;
     margin:0px 10px;
     flex: 0 1 auto; 
+    display:block;
+    visibility:visible;
+    opacity:1;
 }
 
 .maxCombo {
@@ -158,4 +183,78 @@ section {
 
 .acc {
     width:115px;
+}
+
+/*counters 1-9*/
+
+#c1 {
+    transition:all 500ms ease;
+}
+
+#c2 {
+    transition:all 500ms ease;
+}
+
+#c3 {
+    transition:all 500ms ease;
+}
+
+#c4 {
+    transition:all 500ms ease;
+}
+
+#c5 {
+    transition:all 500ms ease;
+}
+
+#c6 {
+    transition:all 500ms ease;
+}
+
+#c7 {
+    transition:all 500ms ease;
+}
+
+#c8 {
+    transition:all 500ms ease;
+}
+
+#c9 {
+    transition:all 500ms ease;
+}
+
+#_c1 {
+    transition:all 500ms ease;
+}
+
+#_c2 {
+    transition:all 500ms ease;
+}
+
+#_c3 {
+    transition:all 500ms ease;
+}
+
+#_c4 {
+    transition:all 500ms ease;
+}
+
+#_c5 {
+    transition:all 500ms ease;
+}
+
+#_c6 {
+    transition:all 500ms ease;
+}
+
+#_c7 {
+    transition:all 500ms ease;
+}
+
+#_c8 {
+    transition:all 500ms ease;
+}
+
+#_c9 {
+    transition:all 500ms ease;
 }
