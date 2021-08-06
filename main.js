@@ -17,6 +17,8 @@ let grade = document.getElementById('grade')
 let star = document.getElementById('star')
 let bg = document.getElementById('bg')
 let playing = false
+let mode;
+let selector;
 let all = ["c1", "_c1", "c2", "_c2", "c3", "_c3", "c4", "_c4", "c5", "_c5","c6", "_c6", "c7", "_c7", "c8", "_c8", "c9", "_c9", "grade", "star"]
 
 let artist;
@@ -76,6 +78,10 @@ socket.onmessage = event => {
             playing = false
         }
 
+        if (mode != menu.gameMode) {
+          mode = menu.gameMode
+        }
+
         //bg
         if (tempImg !== data.menu.bm.path.full) {
             tempImg = data.menu.bm.path.full;
@@ -122,21 +128,106 @@ socket.onmessage = event => {
             pp.update(menu.pp['100'])
           }
 
-          let selector = [0, 1, 2, 3, 12, 13, 14, 15, 16, 17, 18,]
-          for (let i = 0; i < all.length; i++) {
-            document.getElementById(all[i]).classList.add('hide')
-            setTimeout(function(){document.getElementById(all[i]).classList.remove('hide')}, 500)
+          if (mode === 0 || mode === 2) {
+            _c3.innerText = "CS"
+            _c4.innerText = "AR"
+            _c5.innerText = "HP"
+            _c6.innerText = "OD"
+            _c3.style.fontSize = "25px"
+            _c4.style.fontSize = "25px"
+            _c5.style.fontSize = "25px"
+            _c6.style.fontSize = "25px"
+            $c3.style.fontSize = "30px"
+            $c4.style.fontSize = "30px"
+            $c5.style.fontSize = "30px"
+            $c6.style.fontSize = "30px"
+            $c3.style.width = "100px"
+            $c4.style.width = "100px"
+            $c5.style.width = "100px"
+            $c6.style.width = "100px"
+            _c3.style.width = "100px"
+            _c4.style.width = "100px"
+            _c5.style.width = "100px"
+            _c6.style.width = "100px"
+            selector = [0, 1, 2, 3, 12, 13, 14, 15, 16, 17, 18,]
           }
+           if (mode === 3) {
+            _c3.innerText = "Keys"
+            _c4.innerText = ""
+            _c5.innerText = "HP"
+            _c6.innerText = "OD"
+            _c3.style.fontSize = "25px"
+            _c5.style.fontSize = "25px"
+            _c6.style.fontSize = "25px"
+            $c3.style.fontSize = "30px"
+            $c5.style.fontSize = "30px"
+            $c6.style.fontSize = "30px"
+            $c3.style.width = "100px"
+            $c5.style.width = "100px"
+            $c6.style.width = "100px"
+            _c3.style.width = "100px"
+            _c5.style.width = "100px"
+            _c6.style.width = "100px"
+            selector = [0, 1, 2, 3, 6, 7, 12, 13, 14, 15, 16, 17, 18,]
+          }
+           if (mode === 1) {
+            _c3.innerText = ""
+            _c4.innerText = ""
+            _c5.innerText = "HP"
+            _c6.innerText = "OD"
+            _c5.style.fontSize = "25px"
+            _c6.style.fontSize = "25px"
+            $c5.style.fontSize = "30px"
+            $c6.style.fontSize = "30px"
+            $c5.style.width = "100px"
+            $c6.style.width = "100px"
+            _c5.style.width = "100px"
+            _c6.style.width = "100px"
+            selector = [0, 1, 2, 3, 4, 5, 6, 7, 12, 13, 14, 15, 16, 17, 18,]
+          } 
+
           for (let n = 0; n < selector.length; n++) {
-            setTimeout(function(){
-              document.getElementById(all[selector[n]]).style.display = "none";
-            }, 250)
+            document.getElementById(all[selector[n]]).style.width = "0px"
+            document.getElementById(all[selector[n]]).style.fontSize = "0px"
           }
 
+          
 
+          if ($c3 != stats.memoryCS) {
+          $c3.innerText = stats.memoryCS
+          $c3.classList.remove('hide')
+          $c3.classList.add('change')
+          $c3.classList.remove('change')
+          }
 
-        }
+          if ($c4 != stats.memoryAR) {
+          $c4.innerText = stats.memoryAR
+          $c4.classList.remove('hide')
+          $c4.classList.add('change')
+          $c4.classList.remove('change')
+          }
 
+          if ($c5 != stats.memoryHP) {
+            $c5.innerText = stats.memoryHP
+            $c5.classList.remove('hide')
+            $c5.classList.add('change')
+            $c5.classList.remove('change')
+          }
 
+          if ($c6 != stats.memoryOD) {
+            $c6.innerText = stats.memoryOD
+            $c6.classList.remove('hide')
+            $c6.classList.add('change')
+            $c6.classList.remove('change')
+          }
+
+          if (star != stats.fullSR) {
+            star.innerText = stats.fullSR + "*"
+            star.classList.remove('hide')
+            star.classList.add('change')
+            star.classList.remove('change')
+          }
+
+      }
     } catch (err) { console.log(err); };
 };
