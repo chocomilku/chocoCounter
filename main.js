@@ -19,6 +19,8 @@ let bg = document.getElementById('bg')
 let playing = false
 let mode;
 let selector;
+let selector2; // showing selector for halfTop
+let selector3; // showing selector for halfBottom
 let all = ["c1", "_c1", "c2", "_c2", "c3", "_c3", "c4", "_c4", "c5", "_c5","c6", "_c6", "c7", "_c7", "c8", "_c8", "c9", "_c9", "grade", "star"]
 
 let artist;
@@ -29,7 +31,6 @@ let mods;
 
 let tempImg;
 let tempTitle;
-
 
 /* 
 c1 = max combo
@@ -66,6 +67,9 @@ let _c8 = document.getElementById('_c8')
 let _c9 = document.getElementById('_c9')
 
 let pp = new CountUp('pp', 0, 0, 0, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "pp" })
+let acc = new CountUp('c9', 0, 0, 2, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "%" })
+let combo = new CountUp('c2', 0, 0, 0, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "x" })
+let maxCombo = new CountUp('c1', 0, 0, 0, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "x" })
 // dom
 
 socket.onmessage = event => {
@@ -121,7 +125,7 @@ socket.onmessage = event => {
             textFit(document.getElementById('title'), {alignHoriz: true, minFontSize: 16, maxFontSize: 50})
         }
 
-        //playing states
+        //state if playing
         if (playing == false) {
 
           if (pp != menu.pp['100']) {
@@ -191,43 +195,133 @@ socket.onmessage = event => {
             document.getElementById(all[selector[n]]).style.fontSize = "0px"
           }
 
-          
-
           if ($c3 != stats.memoryCS) {
-          $c3.innerText = stats.memoryCS
-          $c3.classList.remove('hide')
-          $c3.classList.add('change')
-          $c3.classList.remove('change')
+            $c3.innerText = stats.memoryCS
+            $c3.classList.remove('change')
+            $c3.classList.add('change')
           }
 
           if ($c4 != stats.memoryAR) {
-          $c4.innerText = stats.memoryAR
-          $c4.classList.remove('hide')
-          $c4.classList.add('change')
-          $c4.classList.remove('change')
+            $c4.innerText = stats.memoryAR
+            $c4.classList.remove('change')
+            $c4.classList.add('change')
           }
 
           if ($c5 != stats.memoryHP) {
             $c5.innerText = stats.memoryHP
-            $c5.classList.remove('hide')
-            $c5.classList.add('change')
             $c5.classList.remove('change')
+            $c5.classList.add('change')
           }
 
           if ($c6 != stats.memoryOD) {
             $c6.innerText = stats.memoryOD
-            $c6.classList.remove('hide')
-            $c6.classList.add('change')
             $c6.classList.remove('change')
+            $c6.classList.add('change')
           }
 
           if (star != stats.fullSR) {
             star.innerText = stats.fullSR + "*"
-            star.classList.remove('hide')
-            star.classList.add('change')
             star.classList.remove('change')
+            star.classList.add('change')
+          }
+        }
+
+        // state if playing
+
+        if (playing == true) {
+
+          let tempCombo;
+          let tempMaxCombo;
+          let tempH300;
+          let tempH200;
+          let tempH100;
+          let tempH50;
+          let tempH0;
+          let tempGeki;
+          let tempKatu;
+
+
+          if (mode === 0) {
+            selector = [7, 11, 13, 15,]
+            selector2 = [6, 10, 12, 14,]
+            selector3 = [4, 5, 8, 9]
+            _c9.style.width = "115px"
+            $c9.style.width = "115px"
+            $c2.style.width = "115px"
+            _c2.style.width = "115px"
+            _c9.style.fontSize = "25px"
+            $c9.style.fontSize = "30px"
+            $c2.style.fontSize = "30px"
+            _c2.style.fontSize = "25px"
+            _c4.innerText = "300"
+            _c6.innerText = "100"
+            _c7.innerText = "50"
+            _c8.innerText = "0"
+          }
+          /* "c1", "_c1", "c2", "_c2", "c3", "_c3", "c4", "_c4", "c5", "_c5","c6", "_c6", "c7", "_c7", "c8", "_c8", "c9", "_c9", "grade", "star"*/
+
+          for (let n = 0; n < selector.length; n++) {
+            document.getElementById(all[selector[n]]).style.width = "100px"
+            document.getElementById(all[selector[n]]).style.fontSize = "25px"
+            document.getElementById(all[selector2[n]]).style.width = "100px"
+            document.getElementById(all[selector2[n]]).style.fontSize = "30px"
+            document.getElementById(all[selector3[n]]).style.width = "0px"
+            document.getElementById(all[selector3[n]]).style.fontSize = "0px"
           }
 
-      }
+          if (pp != play.pp.current) {
+            pp.update(play.pp.current)
+          }
+
+          if (tempCombo != play.combo.current) {
+            tempCombo = play.combo.current
+          }
+
+          if (tempMaxCombo != play.combo.max) {
+            tempMaxCombo = play.combo.max
+          }
+
+          if (tempMaxCombo != tempCombo) {
+            $c1.style.width = "165px"
+            $c1.style.fontSize = "30px"
+            _c1.style.width = "165px"
+            _c1.style.fontSize = "25px"
+            } else {
+            $c1.style.width = "0px"
+            $c1.style.fontSize = "0px"
+            _c1.style.width = "0px"
+            _c1.style.fontSize = "0px"
+            }
+
+          if (combo != play.combo.current) {
+            combo.update(play.combo.current)
+          }
+
+          if (maxCombo != play.combo.max) {
+            maxCombo.update(play.combo.max)
+          }
+
+          if (acc != play.accuracy) {
+            acc.update(play.accuracy)
+          }
+
+          if ($c4 != hits[300] + hits.geki) {
+            $c4.innerText = hits[300] + hits.geki
+          }
+
+          if ($c6 != hits[100] + hits.katu) {
+            $c6.innerText = hits[100] + hits.katu
+          }
+
+          if ($c7 != hits[50]) {
+            $c7.innerText = hits[50]
+          }
+
+          if ($c8 != hits[0]) {
+            $c8.innerText = hits[0]
+          }
+
+
+        }
     } catch (err) { console.log(err); };
 };

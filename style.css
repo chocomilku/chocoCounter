@@ -7,6 +7,15 @@ section {
     height:var(--height);
 }
 
+@keyframes change {
+    0% {transform: scale(0.9)}
+    100% {transform: scale(1.1)}
+}
+
+.change {
+   animation:change 500ms ease infinite normal alternate;
+}
+
 .text {
     margin:0px;
     padding:0px;
@@ -122,6 +131,7 @@ section {
     list-style-type: none;
     margin:0;
     padding:0;
+    gap:15px;
 }
 
 .halfTop {
@@ -141,7 +151,6 @@ section {
 .cN {
     width:100px;
     flex: 0 1 auto;
-    margin:0px 10px;
     border-bottom: 3px solid red;
     border-radius: 1px;
     display:block;
@@ -151,7 +160,6 @@ section {
 
 ._cN {
     width:100px;
-    margin:0px 10px;
     flex: 0 1 auto; 
     display:block;
     visibility:visible;
