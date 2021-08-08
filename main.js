@@ -240,33 +240,72 @@ socket.onmessage = event => {
           let tempGeki;
           let tempKatu;
 
+          _c9.style.width = "115px"
+          $c9.style.width = "115px"
+          $c2.style.width = "115px"
+          _c2.style.width = "115px"
+          _c9.style.fontSize = "25px"
+          $c9.style.fontSize = "30px"
+          $c2.style.fontSize = "30px"
+          _c2.style.fontSize = "25px"
+
 
           if (mode === 0) {
             selector = [7, 11, 13, 15,]
             selector2 = [6, 10, 12, 14,]
             selector3 = [4, 5, 8, 9]
-            _c9.style.width = "115px"
-            $c9.style.width = "115px"
-            $c2.style.width = "115px"
-            _c2.style.width = "115px"
-            _c9.style.fontSize = "25px"
-            $c9.style.fontSize = "30px"
-            $c2.style.fontSize = "30px"
-            _c2.style.fontSize = "25px"
             _c4.innerText = "300"
             _c6.innerText = "100"
             _c7.innerText = "50"
             _c8.innerText = "0"
           }
+
+          if (mode === 1) {
+            selector = [7, 11, 15,] //show halfBottom
+            selector2 = [6, 10, 14,] // show halfTop
+            selector3 = [4, 5, 8, 9, 12, 13,] // hide
+            _c4.innerText = "300"
+            _c6.innerText = "100"
+            _c8.innerText = "0"
+          }
+
+          if (mode === 2) {
+            selector = [7, 11, 13, 15,]
+            selector2 = [6, 10, 12, 14,]
+            selector3 = [4, 5, 8, 9]
+            _c4.innerText = "FRUITS"
+            _c6.innerText = "TICKS"
+            _c7.innerText = "DRPMSS"
+            _c8.innerText = "MISS"
+          }
+
+          if (mode === 3) {
+            selector = [5, 7, 9, 11, 13, 15,] //show halfBottom
+            selector2 = [4, 6, 8, 10, 12,14,] // show halfTop
+            selector3 = [] // hide
+            _c3.innerText = "320"
+            _c4.innerText = "300"
+            _c5.innerText = "200"
+            _c6.innerText = "100"
+            _c7.innerText = "50"
+            _c8.innerText = "0"
+          }
+
           /* "c1", "_c1", "c2", "_c2", "c3", "_c3", "c4", "_c4", "c5", "_c5","c6", "_c6", "c7", "_c7", "c8", "_c8", "c9", "_c9", "grade", "star"*/
 
-          for (let n = 0; n < selector.length; n++) {
-            document.getElementById(all[selector[n]]).style.width = "100px"
-            document.getElementById(all[selector[n]]).style.fontSize = "25px"
-            document.getElementById(all[selector2[n]]).style.width = "100px"
-            document.getElementById(all[selector2[n]]).style.fontSize = "30px"
-            document.getElementById(all[selector3[n]]).style.width = "0px"
-            document.getElementById(all[selector3[n]]).style.fontSize = "0px"
+          for (let x = 0; x < selector.length; x++) {
+            document.getElementById(all[selector[x]]).style.width = "100px"
+            document.getElementById(all[selector[x]]).style.fontSize = "25px"
+          }
+
+          for (let a = 0; a < selector2.length; a++) {
+            document.getElementById(all[selector2[a]]).style.width = "100px"
+            document.getElementById(all[selector2[a]]).style.fontSize = "30px"
+          }
+
+          for (let b = 0; b < selector3.length; b++) {
+            document.getElementById(all[selector3[b]]).style.width = "0px"
+            document.getElementById(all[selector3[b]]).style.fontSize = "0px"
           }
 
           if (pp != play.pp.current) {
@@ -282,10 +321,13 @@ socket.onmessage = event => {
           }
 
           if (tempMaxCombo != tempCombo) {
+            setTimeout(function(){
             $c1.style.width = "165px"
             $c1.style.fontSize = "30px"
             _c1.style.width = "165px"
             _c1.style.fontSize = "25px"
+            }, 300)
+            
             } else {
             $c1.style.width = "0px"
             $c1.style.fontSize = "0px"
@@ -305,16 +347,42 @@ socket.onmessage = event => {
             acc.update(play.accuracy)
           }
 
-          if ($c4 != hits[300] + hits.geki) {
-            $c4.innerText = hits[300] + hits.geki
+          if ($c3 != hits.geki) {
+            $c3.innerText = hits.geki
           }
 
-          if ($c6 != hits[100] + hits.katu) {
-            $c6.innerText = hits[100] + hits.katu
+          if (mode === 3 || mode === 2) {
+            if ($c4 != hits[300]) {
+              $c4.innerText = hits[300]
+            } 
+          } else {
+            if ($c4 != hits[300] + hits.geki) {
+              $c4.innerText = hits[300] + hits.geki
+            }
+          }
+          
+          if ($c5 != hits.katu) {
+            $c5.innerText = hits.katu
           }
 
-          if ($c7 != hits[50]) {
-            $c7.innerText = hits[50]
+          if (mode === 3 || mode === 2) {
+            if ($c6 != hits[100]) {
+              $c6.innerText = hits[100]
+            } 
+          } else {
+            if ($c6 != hits[100] + hits.katu) {
+              $c6.innerText = hits[100] + hits.katu
+            }
+          }
+
+          if (mode === 2) {
+            if ($c7 != hits.katu) {
+              $c7.innerText = hits.katu
+            }
+          } else {
+            if ($c7 != hits[50]) {
+              $c7.innerText = hits[50]
+            }
           }
 
           if ($c8 != hits[0]) {

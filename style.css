@@ -1,5 +1,6 @@
 :root {
     --height: 150px;
+    --borderRadius: 22.5px;
 }
 
 section {
@@ -52,7 +53,7 @@ section {
     width: 1800px;
     height: var(--height);
     display:flex;
-    border-radius: 22.5px;
+    border-radius: var(--borderRadius);
     background: rgba(0, 0, 0, 0.375);
     z-index:1;
 }
@@ -61,17 +62,17 @@ section {
     width:1350px;
     height:var(--height);
     outline:3px solid black;
-    border-radius: 45px;
+    border-radius: 75px;
     position:relative;
     display:flex;
     justify-content: center;
     z-index:1;
 }
 .ppContainer {
-    background: linear-gradient(to left,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.15));
+    background: linear-gradient(to left,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.45));
     width: 225px;
     height:var(--height);
-    border-radius: 22.5px;
+    border-radius: var(--borderRadius);
     font-size:50px;
     text-align: center;
     height:var(--height);
@@ -81,10 +82,10 @@ section {
 }
 
 .gContainer {
-    background: linear-gradient(to right,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.15));
+    background: linear-gradient(to right,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.45));
     width:225px;
     height:var(--height);
-    border-radius: 22.5px;
+    border-radius: var(--borderRadius);
     font-size:50px;
     text-align: center;
     height:var(--height);
@@ -108,10 +109,6 @@ section {
 .fit {
     display:inline-block;
     white-space: nowrap;
-}
-
-#title {
-    transition: font-size 250ms ease-in-out;
 }
 
 /*bottom*/
