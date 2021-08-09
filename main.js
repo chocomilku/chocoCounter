@@ -132,6 +132,12 @@ socket.onmessage = event => {
             pp.update(menu.pp['100'])
           }
 
+          $c3.style.borderImage = "linear-gradient(to right, #FA5C61 0%, #FA5C61 25%, #FA5C61 50%, #FA5C61 75%, #FA5C61 100%)"
+          $c3.style.borderImageSlice = "1"
+          $c4.style.borderColor = "#D9CF7A";
+          $c5.style.borderColor = "#509EDD";
+          $c6.style.borderColor = "#6E20F9";
+
           if (mode === 0 || mode === 2) {
             _c3.innerText = "CS"
             _c4.innerText = "AR"
@@ -243,6 +249,18 @@ socket.onmessage = event => {
           $c2.style.fontSize = "30px"
           _c2.style.fontSize = "25px"
           }, 300)
+
+          $c1.style.borderColor = "lightcoral";
+          $c2.style.borderColor = "lightcoral";
+          $c3.style.borderImage = "linear-gradient(to right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%)"
+          $c3.style.borderImageSlice = "1"
+          $c4.style.borderColor = "#1C96C7";
+          $c5.style.borderColor = "#A1CE6A";
+          $c6.style.borderColor = "#17B572";
+          $c7.style.borderColor = "#A2B1F0";
+          $c8.style.borderColor = "#F01920";
+          $c9.style.borderColor = "lightcoral";
+
           
           if (mode === 0) {
             selector = [7, 11, 13, 15,]
@@ -314,20 +332,20 @@ socket.onmessage = event => {
             tempMaxCombo = play.combo.max
           }
 
-          if (tempMaxCombo != tempCombo) {
-            setTimeout(function(){
-            $c1.style.width = "165px"
-            $c1.style.fontSize = "30px"
-            _c1.style.width = "165px"
-            _c1.style.fontSize = "25px"
-            }, 300)
-            } else {
-            $c1.style.width = "0px"
-            $c1.style.fontSize = "0px"
-            _c1.style.width = "0px"
-            _c1.style.fontSize = "0px"
-            }
-
+          setTimeout(function(){
+            if (tempMaxCombo != tempCombo) {
+              $c1.style.width = "165px"
+              $c1.style.fontSize = "30px"
+              _c1.style.width = "165px"
+              _c1.style.fontSize = "25px"
+              } else {
+              $c1.style.width = "0px"
+              $c1.style.fontSize = "0px"
+              _c1.style.width = "0px"
+              _c1.style.fontSize = "0px"
+              }
+          }, 350)
+          
           if (combo != play.combo.current) {
             combo.update(play.combo.current)
           }
