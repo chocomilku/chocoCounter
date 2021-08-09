@@ -57,7 +57,7 @@ section {
     height: var(--height);
     display:flex;
     border-radius: var(--borderRadius);
-    background: rgba(0, 0, 0, 0.375);
+    background: rgba(0, 0, 0, 0.5);
     z-index:1;
 }
 
