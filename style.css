@@ -22,6 +22,9 @@ section {
     padding:0px;
     font-family: 'Poppins', sans-serif;
     color:white;
+    font-weight: 300;
+    transform: translateY(-0.1rem);
+    text-shadow: 0 0 0.1rem black;
 }
 
 .main{
@@ -61,7 +64,6 @@ section {
 .sub {
     width:1350px;
     height:var(--height);
-    outline:3px solid #48D823;
     border-radius: 75px;
     position:relative;
     display:flex;
