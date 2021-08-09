@@ -18,9 +18,9 @@ let star = document.getElementById('star')
 let bg = document.getElementById('bg')
 let playing = false
 let mode;
-let selector;
-let selector2; // showing selector for halfTop
-let selector3; // showing selector for halfBottom
+let selector; // show halfBottom
+let selector2; // show halfTop
+let selector3; // hide
 let all = ["c1", "_c1", "c2", "_c2", "c3", "_c3", "c4", "_c4", "c5", "_c5","c6", "_c6", "c7", "_c7", "c8", "_c8", "c9", "_c9", "grade", "star"]
 
 let artist;
@@ -132,6 +132,22 @@ socket.onmessage = event => {
             pp.update(menu.pp['100'])
           }
 
+          setTimeout(function(){
+            _c9.style.width = "0px"
+            $c9.style.width = "0px"
+            $c2.style.width = "0px"
+            _c2.style.width = "0px"
+            $c1.style.width = "0px"
+            _c1.style.width = "0px"
+            _c9.style.fontSize = "0px"
+            $c9.style.fontSize = "0px"
+            $c2.style.fontSize = "0px"
+            _c2.style.fontSize = "0px"
+            $c1.style.fontSize = "0px"
+            _c1.style.fontSize = "0px"
+            grade.style.fontSize = "0px"
+            }, 300)
+
           $c3.style.borderImage = "linear-gradient(to right, #FA5C61 0%, #FA5C61 25%, #FA5C61 50%, #FA5C61 75%, #FA5C61 100%)"
           $c3.style.borderImageSlice = "1"
           $c4.style.borderColor = "#D9CF7A";
@@ -143,92 +159,64 @@ socket.onmessage = event => {
             _c4.innerText = "AR"
             _c5.innerText = "HP"
             _c6.innerText = "OD"
-            _c3.style.fontSize = "25px"
-            _c4.style.fontSize = "25px"
-            _c5.style.fontSize = "25px"
-            _c6.style.fontSize = "25px"
-            $c3.style.fontSize = "30px"
-            $c4.style.fontSize = "30px"
-            $c5.style.fontSize = "30px"
-            $c6.style.fontSize = "30px"
-            $c3.style.width = "100px"
-            $c4.style.width = "100px"
-            $c5.style.width = "100px"
-            $c6.style.width = "100px"
-            _c3.style.width = "100px"
-            _c4.style.width = "100px"
-            _c5.style.width = "100px"
-            _c6.style.width = "100px"
-            selector = [0, 1, 2, 3, 12, 13, 14, 15, 16, 17, 18,]
+            selector = [5, 7, 9, 11] // show halfBottom
+            selector2 = [4, 6, 8, 10] // show halfTop
+            selector3 = [12, 13, 14, 15] // hide
           }
            if (mode === 3) {
             _c3.innerText = "Keys"
-            _c4.innerText = ""
+            _c4.innerText = "AR"
             _c5.innerText = "HP"
             _c6.innerText = "OD"
-            _c3.style.fontSize = "25px"
-            _c5.style.fontSize = "25px"
-            _c6.style.fontSize = "25px"
-            $c3.style.fontSize = "30px"
-            $c5.style.fontSize = "30px"
-            $c6.style.fontSize = "30px"
-            $c3.style.width = "100px"
-            $c5.style.width = "100px"
-            $c6.style.width = "100px"
-            _c3.style.width = "100px"
-            _c5.style.width = "100px"
-            _c6.style.width = "100px"
-            selector = [0, 1, 2, 3, 6, 7, 12, 13, 14, 15, 16, 17, 18,]
+            selector = [5, 9, 11] // show halfBottom
+            selector2 = [4, 8, 10] // show halfTop
+            selector3 = [6, 7, 12, 13, 14, 15] // hide
           }
            if (mode === 1) {
-            _c3.innerText = ""
-            _c4.innerText = ""
+            _c3.innerText = "CS"
+            _c4.innerText = "AR"
             _c5.innerText = "HP"
             _c6.innerText = "OD"
-            _c5.style.fontSize = "25px"
-            _c6.style.fontSize = "25px"
-            $c5.style.fontSize = "30px"
-            $c6.style.fontSize = "30px"
-            $c5.style.width = "100px"
-            $c6.style.width = "100px"
-            _c5.style.width = "100px"
-            _c6.style.width = "100px"
-            selector = [0, 1, 2, 3, 4, 5, 6, 7, 12, 13, 14, 15, 16, 17, 18,]
+            selector = [9, 11] // show halfBottom
+            selector2 = [8, 10] // show halfTop
+            selector3 = [4, 5, 6, 7, 12, 13, 14, 15] // hide
           } 
 
-          for (let n = 0; n < selector.length; n++) {
-            document.getElementById(all[selector[n]]).style.width = "0px"
-            document.getElementById(all[selector[n]]).style.fontSize = "0px"
+          /* "c1", "_c1", "c2", "_c2", "c3", "_c3", "c4", "_c4", "c5", "_c5","c6", "_c6", "c7", "_c7", "c8", "_c8", "c9", "_c9", "grade", "star"*/
+
+          for (let i = 0; i < selector.length; i++) {
+            document.getElementById(all[selector[i]]).style.width = "100px"
+            document.getElementById(all[selector[i]]).style.fontSize = "25px"
+          }
+
+          for (let n = 0; n < selector2.length; n++) {
+            document.getElementById(all[selector2[n]]).style.width = "100px"
+            document.getElementById(all[selector2[n]]).style.fontSize = "30px"
+          }
+
+          for (let y = 0; y < selector3.length; y++) {
+            document.getElementById(all[selector3[y]]).style.width = "0px"
+            document.getElementById(all[selector3[y]]).style.fontSize = "0px"
           }
 
           if ($c3 != stats.memoryCS) {
             $c3.innerText = stats.memoryCS
-            $c3.classList.remove('change')
-            $c3.classList.add('change')
           }
 
           if ($c4 != stats.memoryAR) {
             $c4.innerText = stats.memoryAR
-            $c4.classList.remove('change')
-            $c4.classList.add('change')
           }
 
           if ($c5 != stats.memoryHP) {
             $c5.innerText = stats.memoryHP
-            $c5.classList.remove('change')
-            $c5.classList.add('change')
           }
 
           if ($c6 != stats.memoryOD) {
             $c6.innerText = stats.memoryOD
-            $c6.classList.remove('change')
-            $c6.classList.add('change')
           }
 
           if (star != stats.fullSR) {
             star.innerText = stats.fullSR + "*"
-            star.classList.remove('change')
-            star.classList.add('change')
           }
         }
 
@@ -263,9 +251,9 @@ socket.onmessage = event => {
 
           
           if (mode === 0) {
-            selector = [7, 11, 13, 15,]
-            selector2 = [6, 10, 12, 14,]
-            selector3 = [4, 5, 8, 9]
+            selector = [7, 11, 13, 15,] // show halfBottom
+            selector2 = [6, 10, 12, 14,] // show halfTop
+            selector3 = [4, 5, 8, 9] // hide
             _c4.innerText = "300"
             _c6.innerText = "100"
             _c7.innerText = "50"
@@ -282,9 +270,9 @@ socket.onmessage = event => {
           }
 
           if (mode === 2) {
-            selector = [7, 11, 13, 15,]
-            selector2 = [6, 10, 12, 14,]
-            selector3 = [4, 5, 8, 9]
+            selector = [7, 11, 13, 15,] // show halfBottom
+            selector2 = [6, 10, 12, 14,] // show halfTop
+            selector3 = [4, 5, 8, 9] // hide
             _c4.innerText = "FRUITS"
             _c6.innerText = "TICKS"
             _c7.innerText = "DRPMSS"
@@ -399,8 +387,6 @@ socket.onmessage = event => {
           if ($c8 != hits[0]) {
             $c8.innerText = hits[0]
           }
-
-
         }
     } catch (err) { console.log(err); };
 };
