@@ -71,7 +71,7 @@ section {
     z-index:1;
 }
 .ppContainer {
-    background: linear-gradient(to left,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.45));
+    background: linear-gradient(to left,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.75));
     width: 225px;
     height:var(--height);
     border-radius: var(--borderRadius);
@@ -84,7 +84,7 @@ section {
 }
 
 .gContainer {
-    background: linear-gradient(to right,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.45));
+    background: linear-gradient(to right,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.75));
     width:225px;
     height:var(--height);
     border-radius: var(--borderRadius);

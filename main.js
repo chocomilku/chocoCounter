@@ -233,6 +233,7 @@ socket.onmessage = event => {
           let tempCombo;
           let tempMaxCombo;
 
+          setTimeout(function(){
           _c9.style.width = "115px"
           $c9.style.width = "115px"
           $c2.style.width = "115px"
@@ -241,8 +242,8 @@ socket.onmessage = event => {
           $c9.style.fontSize = "30px"
           $c2.style.fontSize = "30px"
           _c2.style.fontSize = "25px"
-
-
+          }, 300)
+          
           if (mode === 0) {
             selector = [7, 11, 13, 15,]
             selector2 = [6, 10, 12, 14,]
@@ -320,7 +321,6 @@ socket.onmessage = event => {
             _c1.style.width = "165px"
             _c1.style.fontSize = "25px"
             }, 300)
-            
             } else {
             $c1.style.width = "0px"
             $c1.style.fontSize = "0px"
