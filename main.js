@@ -232,13 +232,6 @@ socket.onmessage = event => {
 
           let tempCombo;
           let tempMaxCombo;
-          let tempH300;
-          let tempH200;
-          let tempH100;
-          let tempH50;
-          let tempH0;
-          let tempGeki;
-          let tempKatu;
 
           _c9.style.width = "115px"
           $c9.style.width = "115px"
