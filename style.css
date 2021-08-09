@@ -49,7 +49,7 @@ section {
 /* main body*/
 
 .body {
-    border:5px solid black;
+    border:5px solid #b323d8;
     width: 1800px;
     height: var(--height);
     display:flex;
@@ -61,7 +61,7 @@ section {
 .sub {
     width:1350px;
     height:var(--height);
-    outline:3px solid black;
+    outline:3px solid #48D823;
     border-radius: 75px;
     position:relative;
     display:flex;
@@ -179,38 +179,48 @@ section {
 
 #c1 {
     transition:all 500ms ease;
+    border-color: lightcoral;
 }
 
 #c2 {
     transition:all 500ms ease;
+    border-color: lightcoral;
 }
 
 #c3 {
     transition:all 500ms ease;
+    border-image: linear-gradient(to right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
 }
 
 #c4 {
     transition:all 500ms ease;
+    border-color: #1C96C7;
 }
 
 #c5 {
     transition:all 500ms ease;
+    border-color: #A1CE6A;
 }
 
 #c6 {
     transition:all 500ms ease;
+    border-color: #17B572;
 }
 
 #c7 {
     transition:all 500ms ease;
+    border-color: #A2B1F0;
 }
 
 #c8 {
     transition:all 500ms ease;
+    border-color: #F01920;
 }
 
 #c9 {
     transition:all 500ms ease;
+    border-color: lightcoral;
 }
 
 #_c1 {
