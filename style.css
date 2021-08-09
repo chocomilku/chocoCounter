@@ -13,9 +13,7 @@ section {
     padding:0px;
     font-family: 'Poppins', sans-serif;
     color:white;
-    font-weight: 300;
-    transform: translateY(-0.1rem);
-    text-shadow: 0 0 0.1rem black;
+    text-shadow: 3px 5px 2px #474747;
 }
 
 .main{
