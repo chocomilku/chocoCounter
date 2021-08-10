@@ -264,7 +264,7 @@ socket.onmessage = event => {
           $c9.style.fontSize = "30px"
           $c2.style.fontSize = "30px"
           _c2.style.fontSize = "25px"
-          grade.style.fontSize = "75px"
+          grade.style.fontSize = "90px"
           star.style.fontSize = "0px"
           starAccent.style.fontSize = "0px"
           starContainer.style.width = "0px"
