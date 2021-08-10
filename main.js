@@ -15,6 +15,7 @@ socket.onerror = error => console.log("Socket Error: ", error);
 let $title = document.getElementById('title')
 let grade = document.getElementById('grade')
 let star = document.getElementById('star')
+let starAccent = document.getElementById('starAccent')
 let bg = document.getElementById('bg')
 let playing = false
 let mode;
@@ -125,7 +126,7 @@ socket.onmessage = event => {
             textFit(document.getElementById('title'), {alignHoriz: true, minFontSize: 16, maxFontSize: 50})
         }
 
-        //state if playing
+        //state if not playing
         if (playing == false) {
 
           if (pp != menu.pp['100']) {
@@ -146,6 +147,8 @@ socket.onmessage = event => {
             $c1.style.fontSize = "0px"
             _c1.style.fontSize = "0px"
             grade.style.fontSize = "0px"
+            star.style.fontSize = "50px"
+            starAccent.style.fontSize = "50px"
             }, 300)
 
           $c3.style.borderImage = "linear-gradient(to right, #FA5C61 0%, #FA5C61 25%, #FA5C61 50%, #FA5C61 75%, #FA5C61 100%)"
@@ -226,6 +229,7 @@ socket.onmessage = event => {
 
           let tempCombo;
           let tempMaxCombo;
+          let tempGrade;
 
           setTimeout(function(){
           _c9.style.width = "115px"
@@ -236,6 +240,9 @@ socket.onmessage = event => {
           $c9.style.fontSize = "30px"
           $c2.style.fontSize = "30px"
           _c2.style.fontSize = "25px"
+          grade.style.fontSize = "75px"
+          star.style.fontSize = "0px"
+          starAccent.style.fontSize = "0px"
           }, 300)
 
           $c1.style.borderColor = "lightcoral";
@@ -344,6 +351,14 @@ socket.onmessage = event => {
 
           if (acc != play.accuracy) {
             acc.update(play.accuracy)
+          }
+
+          if (grade != hits.grade.current) {
+            grade.innerText = hits.grade.current
+            tempGrade = hits.grade.current
+            if (tempGrade == "") {
+              grade.innerText = "--"
+            }
           }
 
           if ($c3 != hits.geki) {
