@@ -66,7 +66,7 @@ let _c7 = document.getElementById('_c7')
 let _c8 = document.getElementById('_c8')
 let _c9 = document.getElementById('_c9')
 
-let pp = new CountUp('pp', 0, 0, 0, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "pp" })
+let pp = new CountUp('pp', 0, 0, 0, .5, { useEasing: true, useGrouping: true, separator: "", decimal: "."})
 let acc = new CountUp('c9', 0, 0, 2, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "%" })
 let combo = new CountUp('c2', 0, 0, 0, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "x" })
 let maxCombo = new CountUp('c1', 0, 0, 0, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "x" })
@@ -216,7 +216,7 @@ socket.onmessage = event => {
           }
 
           if (star != stats.fullSR) {
-            star.innerText = stats.fullSR + "*"
+            star.innerText = stats.fullSR
           }
         }
 

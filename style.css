@@ -1,6 +1,7 @@
 :root {
     --height: 150px;
     --borderRadius: 22.5px;
+    --accent: #b323d8;
 }
 
 section {
@@ -40,8 +41,12 @@ section {
 
 /* main body*/
 
+.accent {
+    color: var(--accent);
+}
+
 .body {
-    border:5px solid #b323d8;
+    border:5px solid var(--accent);
     width: 1800px;
     height: var(--height);
     display:flex;
