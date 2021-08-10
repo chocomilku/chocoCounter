@@ -17,6 +17,7 @@ let grade = document.getElementById('grade')
 let star = document.getElementById('star')
 let starAccent = document.getElementById('starAccent')
 let bg = document.getElementById('bg')
+let starContainer = document.getElementById('starContainer')
 let playing = false
 let hdfl = false
 let mode;
@@ -33,6 +34,7 @@ let mods;
 
 let tempImg;
 let tempTitle;
+let tempSR;
 
 /* 
 c1 = max combo
@@ -155,6 +157,8 @@ socket.onmessage = event => {
             grade.style.fontSize = "0px"
             star.style.fontSize = "50px"
             starAccent.style.fontSize = "50px"
+            starContainer.style.width = "165px"
+            starContainer.style.height = "85px"
             }, 300)
 
           $c3.style.borderImage = "linear-gradient(to right, #FA5C61 0%, #FA5C61 25%, #FA5C61 50%, #FA5C61 75%, #FA5C61 100%)"
@@ -226,6 +230,20 @@ socket.onmessage = event => {
 
           if (star != stats.fullSR) {
             star.innerText = stats.fullSR
+            tempSR = stats.fullSR
+            if (tempSR <= 1.99) {
+              starContainer.style.backgroundColor = "#6fb23a"
+            } else if (tempSR >= 2 && tempSR <= 2.69) {
+              starContainer.style.backgroundColor = "#63c7ff"
+            } else if (tempSR >= 2.7 && tempSR <= 3.99) {
+              starContainer.style.backgroundColor = "#ffd966"
+            } else if (tempSR >= 4 && tempSR <= 5.29) {
+              starContainer.style.backgroundColor = "#ff7aba"
+            } else if (tempSR >= 5.3 && tempSR <= 6.49) {
+              starContainer.style.backgroundColor = "#868aff"
+            } else if (tempSR >= 6.5) {
+              starContainer.style.backgroundColor = "#000000"
+            }
           }
         }
 
@@ -249,6 +267,8 @@ socket.onmessage = event => {
           grade.style.fontSize = "75px"
           star.style.fontSize = "0px"
           starAccent.style.fontSize = "0px"
+          starContainer.style.width = "0px"
+          starContainer.style.height = "0px"
           }, 300)
 
           $c1.style.borderColor = "lightcoral";

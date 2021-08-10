@@ -84,9 +84,21 @@ section {
     border-radius: var(--borderRadius);
     font-size:50px;
     text-align: center;
-    height:var(--height);
-    line-height: var(--height);
     z-index:2;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.starContainer {
+    width:165px;
+    height:85px;
+    background-color: #000;
+    display:block;
+    border-radius: 35px;
+    text-align: center;
+    line-height: 85px;
+    transition: all 750ms ease;
 }
 
 /*top*/
@@ -172,7 +184,7 @@ section {
 }
 
 .grade {
-    font-size: 75px;
+    font-size: 50px;
 }
 
 /*counters 1-9*/
