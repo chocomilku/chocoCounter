@@ -18,6 +18,7 @@ let star = document.getElementById('star')
 let starAccent = document.getElementById('starAccent')
 let bg = document.getElementById('bg')
 let playing = false
+let hdfl = false
 let mode;
 let selector; // show halfBottom
 let selector2; // show halfTop
@@ -117,6 +118,11 @@ socket.onmessage = event => {
             mods = "+" + menu.mods.str
             if (mods == "+NM") {
                 mods = ""
+            }
+            if (mods.includes('HD') || mods.includes('FL')) {
+              hdfl = true
+            } else {
+              hdfl = false
             }
           }
 
@@ -358,6 +364,35 @@ socket.onmessage = event => {
             tempGrade = hits.grade.current
             if (tempGrade == "") {
               grade.innerText = "--"
+            }
+            if (tempGrade == "SS") {
+              if (hdfl == true) {
+                grade.style.color = "#E4E4E4"
+              } else {
+                grade.style.color = "#FFFB8B"
+              }
+            }
+            if (tempGrade == "S") {
+              if (hdfl == true) {
+                grade.style.color = "#E4E4E4"
+              } else {
+                grade.style.color = "#FFFB8B"
+              }
+            }
+            if (tempGrade == "A") {
+              grade.style.color = "#9DF9AA"
+            }
+            if (tempGrade == "B") {
+              grade.style.color = "#9DACF9"
+            }
+            if (tempGrade == "C") {
+              grade.style.color = "#ED9DF9"
+            }
+            if (tempGrade == "D") {
+              grade.style.color = "#F99D9D"
+            }
+            if (tempGrade == "") {
+              grade.style.color = "#FFFFFF"
             }
           }
 
