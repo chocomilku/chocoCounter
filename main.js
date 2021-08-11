@@ -254,6 +254,7 @@ socket.onmessage = event => {
           let tempCombo;
           let tempMaxCombo;
           let tempGrade;
+          let tempAcc;
 
           setTimeout(function(){
           _c9.style.width = "115px"
@@ -377,43 +378,86 @@ socket.onmessage = event => {
 
           if (acc != play.accuracy) {
             acc.update(play.accuracy)
+            tempAcc = play.accuracy
           }
 
-          if (grade != hits.grade.current) {
-            grade.innerText = hits.grade.current
-            tempGrade = hits.grade.current
-            if (tempGrade == "") {
-              grade.innerText = "--"
-            }
-            if (tempGrade == "SS") {
-              if (hdfl == true) {
-                grade.style.color = "#E4E4E4"
-              } else {
-                grade.style.color = "#FFFB8B"
+          if (mode === 2 || mode === 3) {
+            if (mode === 2) {
+              if (tempAcc == 100.00) {
+                tempGrade = "SS"
+              } else if (tempAcc >= 98.01 && tempAcc <= 99.99) {
+                tempGrade = "S"
+              } else if (tempAcc >= 94.01 && tempAcc <= 98.00) {
+                tempGrade = "A"
+              } else if (tempAcc >= 90.01 && tempAcc <= 94.00) {
+                tempGrade = "B"
+              } else if (tempAcc >= 85.01 && tempAcc <= 90.00) {
+                tempGrade = "C"
+              } else if (tempAcc <= 85.00) {
+                tempGrade = "D"
               }
             }
-            if (tempGrade == "S") {
-              if (hdfl == true) {
-                grade.style.color = "#E4E4E4"
-              } else {
-                grade.style.color = "#FFFB8B"
+            if (mode === 3) {
+              if (tempAcc == 100.00) {
+                tempGrade = "SS"
+              } else if (tempAcc >= 95.00 && tempAcc <= 99.99) {
+                tempGrade = "S"
+              } else if (tempAcc >= 90.00 && tempAcc <= 94.99) {
+                tempGrade = "A"
+              } else if (tempAcc >= 80.00 && tempAcc <= 89.99) {
+                tempGrade = "B"
+              } else if (tempAcc >= 70.00 && tempAcc <= 79.99) {
+                tempGrade = "C"
+              } else if (tempAcc <= 69.99) {
+                tempGrade = "D"
               }
+            } 
+            if (tempAcc == 0) {
+              tempGrade = ""
             }
-            if (tempGrade == "A") {
-              grade.style.color = "#9DF9AA"
+            if (grade != tempGrade) {
+              grade.innerText = tempGrade
             }
-            if (tempGrade == "B") {
-              grade.style.color = "#9DACF9"
+          }
+
+          if (mode === 0 || mode === 1) {
+            if (grade != hits.grade.current) {
+              grade.innerText = hits.grade.current
+              tempGrade = hits.grade.current
             }
-            if (tempGrade == "C") {
-              grade.style.color = "#ED9DF9"
+          }
+
+          if (tempGrade == "") {
+            grade.innerText = "--"
+          }
+          if (tempGrade == "SS") {
+            if (hdfl == true) {
+              grade.style.color = "#E4E4E4"
+            } else {
+              grade.style.color = "#FFFB8B"
             }
-            if (tempGrade == "D") {
-              grade.style.color = "#F99D9D"
+          }
+          if (tempGrade == "S") {
+            if (hdfl == true) {
+              grade.style.color = "#E4E4E4"
+            } else {
+              grade.style.color = "#FFFB8B"
             }
-            if (tempGrade == "") {
-              grade.style.color = "#FFFFFF"
-            }
+          }
+          if (tempGrade == "A") {
+            grade.style.color = "#9DF9AA"
+          }
+          if (tempGrade == "B") {
+            grade.style.color = "#9DACF9"
+          }
+          if (tempGrade == "C") {
+            grade.style.color = "#ED9DF9"
+          }
+          if (tempGrade == "D") {
+            grade.style.color = "#F99D9D"
+          }
+          if (tempGrade == "") {
+            grade.style.color = "#FFFFFF"
           }
 
           if ($c3 != hits.geki) {
