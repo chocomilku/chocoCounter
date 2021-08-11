@@ -142,18 +142,12 @@ socket.onmessage = event => {
           }
 
           setTimeout(function(){
-            _c9.style.width = "0px"
-            $c9.style.width = "0px"
-            $c2.style.width = "0px"
-            _c2.style.width = "0px"
-            $c1.style.width = "0px"
-            _c1.style.width = "0px"
-            _c9.style.fontSize = "0px"
-            $c9.style.fontSize = "0px"
-            $c2.style.fontSize = "0px"
-            _c2.style.fontSize = "0px"
-            $c1.style.fontSize = "0px"
-            _c1.style.fontSize = "0px"
+            _c9.style.cssText = "width: 0px; font-size: 0px;"
+            $c9.style.cssText = "width: 0px; font-size: 0px;"
+            _c2.style.cssText = "width: 0px; font-size: 0px;"
+            $c2.style.cssText = "width: 0px; font-size: 0px;"
+            _c1.style.cssText = "width: 0px; font-size: 0px;"
+            $c1.style.cssText = "width: 0px; font-size: 0px;"
             grade.style.fontSize = "0px"
             star.style.fontSize = "50px"
             starAccent.style.fontSize = "50px"
@@ -257,14 +251,10 @@ socket.onmessage = event => {
           let tempAcc;
 
           setTimeout(function(){
-          _c9.style.width = "115px"
-          $c9.style.width = "115px"
-          $c2.style.width = "115px"
-          _c2.style.width = "115px"
-          _c9.style.fontSize = "25px"
-          $c9.style.fontSize = "30px"
-          $c2.style.fontSize = "30px"
-          _c2.style.fontSize = "25px"
+          _c9.style.cssText = "width: 115px; font-size: 25px;"
+          $c9.style.cssText = "width: 115px; font-size: 30px;"
+          _c2.style.cssText = "width: 115px; font-size: 25px;"
+          $c2.style.cssText = "width: 115px; font-size: 30px;"
           grade.style.fontSize = "90px"
           star.style.fontSize = "0px"
           starAccent.style.fontSize = "0px"
@@ -356,15 +346,11 @@ socket.onmessage = event => {
 
           setTimeout(function(){
             if (tempMaxCombo != tempCombo) {
-              $c1.style.width = "165px"
-              $c1.style.fontSize = "30px"
-              _c1.style.width = "165px"
-              _c1.style.fontSize = "25px"
+              $c1.style.cssText = "width: 165px; font-size: 30px;"
+              _c1.style.cssText = "width: 165px; font-size: 25px;"
               } else {
-              $c1.style.width = "0px"
-              $c1.style.fontSize = "0px"
-              _c1.style.width = "0px"
-              _c1.style.fontSize = "0px"
+                $c1.style.cssText = "width: 0px; font-size: 0px;"
+              _c1.style.cssText = "width: 0px; font-size: 0px;"
               }
           }, 350)
           
