@@ -63,3 +63,8 @@ Catch Gameplay
 Mania gameplay
 
 ---
+
+# Dependencies
+[ReconnectingWebSocket](https://github.com/joewalnes/reconnecting-websocket)
+[CountUp.js](https://github.com/inorganik/CountUp.js)
+[textFit](https://github.com/STRML/textFit)
