@@ -17,6 +17,7 @@
 
 # Features
 
+![Imgur](https://i.imgur.com/6UkIScp.gif)
 * Mods
 * Star Rating
 * PP if FC
