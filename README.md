@@ -3,9 +3,10 @@
 * Works on all gamemodes!
 * Shows gameplay related data
 * Shows info if not playing
+* some cool animations on everything or something
 * i don't know what im saying
 
-Size: 1810 x 160
+**Size: 1810 x 160**
 
 ---
 
@@ -67,8 +68,10 @@ Mania gameplay
 ---
 
 # Dependencies
-[ReconnectingWebSocket](https://github.com/joewalnes/reconnecting-websocket)
+[ReconnectingWebSocket](https://github.com/joewalnes/reconnecting-websocket) - **connecting to websocket from gosumemory**
 
-[CountUp.js](https://github.com/inorganik/CountUp.js)
+[CountUp.js](https://github.com/inorganik/CountUp.js) - **updating numbers (used by some counters)**
 
-[textFit](https://github.com/STRML/textFit)
+[textFit](https://github.com/STRML/textFit) - **fitting text (used in title)**
+
+[gosumemory](https://github.com/l3lackShark/gosumemory) **main program that runs this on**
