@@ -74,18 +74,21 @@ let pp = new CountUp('pp', 0, 0, 0, .5, { useEasing: true, useGrouping: true, se
 let acc = new CountUp('c9', 0, 0, 2, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "%" })
 let combo = new CountUp('c2', 0, 0, 0, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "x" })
 let maxCombo = new CountUp('c1', 0, 0, 0, .5, { useEasing: true, useGrouping: true, separator: "", decimal: ".", suffix: "x" })
+
 // dom
 
 socket.onmessage = event => {
     try { 
         let data = JSON.parse(event.data), menu = data.menu, play = data.gameplay, hits = play.hits, meta = menu.bm.metadata, stats = menu.bm.stats
 
+        // checks game state to indicate if its playing or not
         if (menu.state === 2 || menu.state === 7 || menu.state === 14) {
             playing = true
         } else {
             playing = false
         }
 
+        // logs what gamemode it is
         if (mode != menu.gameMode) {
           mode = menu.gameMode
         }
@@ -137,10 +140,12 @@ socket.onmessage = event => {
         //state if not playing
         if (playing == false) {
 
+          // updates pp to pp if fc if not playing
           if (pp != menu.pp['100']) {
             pp.update(menu.pp['100'])
           }
 
+          // hides certain counters
           setTimeout(function(){
             _c9.style.cssText = "width: 0px; font-size: 0px;"
             $c9.style.cssText = "width: 0px; font-size: 0px;"
@@ -155,12 +160,14 @@ socket.onmessage = event => {
             starContainer.style.height = "85px"
             }, 300)
 
+          // changes border color (bar below the number)
           $c3.style.borderImage = "linear-gradient(to right, #FA5C61 0%, #FA5C61 25%, #FA5C61 50%, #FA5C61 75%, #FA5C61 100%)"
           $c3.style.borderImageSlice = "1"
           $c4.style.borderColor = "#D9CF7A";
           $c5.style.borderColor = "#509EDD";
           $c6.style.borderColor = "#6E20F9";
 
+          // checks gamemode to change info 
           if (mode === 0 || mode === 2) {
             _c3.innerText = "CS"
             _c4.innerText = "AR"
@@ -191,6 +198,7 @@ socket.onmessage = event => {
 
           /* "c1", "_c1", "c2", "_c2", "c3", "_c3", "c4", "_c4", "c5", "_c5","c6", "_c6", "c7", "_c7", "c8", "_c8", "c9", "_c9", "grade", "star"*/
 
+          // shows and hides certain counters indicated by the checking above
           for (let i = 0; i < selector.length; i++) {
             document.getElementById(all[selector[i]]).style.width = "100px"
             document.getElementById(all[selector[i]]).style.fontSize = "25px"
@@ -206,6 +214,7 @@ socket.onmessage = event => {
             document.getElementById(all[selector3[y]]).style.fontSize = "0px"
           }
 
+          // changes text
           if ($c3 != stats.memoryCS) {
             $c3.innerText = stats.memoryCS
           }
@@ -222,6 +231,7 @@ socket.onmessage = event => {
             $c6.innerText = stats.memoryOD
           }
 
+          // changes star rating text and container color according to the star rating
           if (star != stats.fullSR) {
             star.innerText = stats.fullSR
             tempSR = stats.fullSR
@@ -250,6 +260,7 @@ socket.onmessage = event => {
           let tempGrade;
           let tempAcc;
 
+          // shows and hides certain counters
           setTimeout(function(){
           _c9.style.cssText = "width: 115px; font-size: 25px;"
           $c9.style.cssText = "width: 115px; font-size: 30px;"
@@ -262,6 +273,7 @@ socket.onmessage = event => {
           starContainer.style.height = "0px"
           }, 300)
 
+          // changes border (bar below the number)
           $c1.style.borderColor = "lightcoral";
           $c2.style.borderColor = "lightcoral";
           $c3.style.borderImage = "linear-gradient(to right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%)"
@@ -273,7 +285,7 @@ socket.onmessage = event => {
           $c8.style.borderColor = "#F01920";
           $c9.style.borderColor = "lightcoral";
 
-          
+          // changes info according to the gamemode
           if (mode === 0) {
             selector = [7, 11, 13, 15,] // show halfBottom
             selector2 = [6, 10, 12, 14,] // show halfTop
@@ -317,6 +329,7 @@ socket.onmessage = event => {
 
           /* "c1", "_c1", "c2", "_c2", "c3", "_c3", "c4", "_c4", "c5", "_c5","c6", "_c6", "c7", "_c7", "c8", "_c8", "c9", "_c9", "grade", "star"*/
 
+          // shows and hides counters based on the checks above
           for (let x = 0; x < selector.length; x++) {
             document.getElementById(all[selector[x]]).style.width = "100px"
             document.getElementById(all[selector[x]]).style.fontSize = "25px"
@@ -332,6 +345,7 @@ socket.onmessage = event => {
             document.getElementById(all[selector3[b]]).style.fontSize = "0px"
           }
 
+          // changes text
           if (pp != play.pp.current) {
             pp.update(play.pp.current)
           }
@@ -344,16 +358,18 @@ socket.onmessage = event => {
             tempMaxCombo = play.combo.max
           }
 
+          // shows and hides the max combo if max combo and combo are equal and vice versa
           setTimeout(function(){
             if (tempMaxCombo != tempCombo) {
               $c1.style.cssText = "width: 165px; font-size: 30px;"
               _c1.style.cssText = "width: 165px; font-size: 25px;"
               } else {
-                $c1.style.cssText = "width: 0px; font-size: 0px;"
+              $c1.style.cssText = "width: 0px; font-size: 0px;"
               _c1.style.cssText = "width: 0px; font-size: 0px;"
               }
           }, 350)
           
+          // changes text again
           if (combo != play.combo.current) {
             combo.update(play.combo.current)
           }
@@ -367,6 +383,7 @@ socket.onmessage = event => {
             tempAcc = play.accuracy
           }
 
+          // catch and mania grade system
           if (mode === 2 || mode === 3) {
             if (mode === 2) {
               if (tempAcc == 100.00) {
@@ -406,6 +423,7 @@ socket.onmessage = event => {
             }
           }
 
+          // standard and taiko grade system from gosumemory
           if (mode === 0 || mode === 1) {
             if (grade != hits.grade.current) {
               grade.innerText = hits.grade.current
@@ -413,9 +431,12 @@ socket.onmessage = event => {
             }
           }
 
+          // if acc is 0, grade is --
           if (tempGrade == "") {
             grade.innerText = "--"
           }
+
+          // changes color of grade 
           if (tempGrade == "SS") {
             if (hdfl == true) {
               grade.style.color = "#E4E4E4"
@@ -446,6 +467,7 @@ socket.onmessage = event => {
             grade.style.color = "#FFFFFF"
           }
 
+          // changes text again
           if ($c3 != hits.geki) {
             $c3.innerText = hits.geki
           }
