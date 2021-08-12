@@ -5,6 +5,8 @@
 * Shows info if not playing
 * i don't know what im saying
 
+Size: 1810 x 160
+
 ---
 
 # Installation
